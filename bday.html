@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrating Nithya's Birthday!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 36px;
+            animation: heartbeat 1.5s ease infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .next-button {
+            font-size: 24px;
+            color: #fff;
+            background-color: #ff69b4;
+            border: none;
+            padding: 15px 40px;
+            margin-top: 50px;
+            cursor: pointer;
+            border-radius: 50px;
+            box-shadow: 0 8px 16px rgba(255, 105, 180, 0.3);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .next-button:hover {
+            background-color: #d3548e;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(255, 105, 180, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Happy Birthday, Nithya! 🎂</h1>
+        <video id="birthday-video" width="100%" controls autoplay muted>
+            <source src="C:\Users\Pranavi\Downloads\Untitled video - Made with Clipchamp (6).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button class="next-button" onclick="goToNextPage()">Next</button>
+    </div>
+    <script>
+        function goToNextPage() {
+            // Replace 'next_page.html' with the URL of your next page
+            window.location.href = 'next_page.html';
+        }
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            // Play the video
+            var video = document.getElementById('birthday-video');
+            var promise = video.play();
+
+            if (promise !== undefined) {
+                promise.then(_ => {
+                    // Autoplay started successfully
+                }).catch(error => {
+                    // Autoplay was prevented
+                    // You can handle the error here or provide a button for the user to manually start the video
+                });
+            }
+        });
+    </script>
+</body>
+</html>

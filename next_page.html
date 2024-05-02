@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .box {
+            width: 80%;
+            max-width: 300px;
+            height: 300px;
+            background-color: #fff;
+            border: 2px solid #ff69b4;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .open-button, .close-button {
+            background-color: #ff69b4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            outline: none;
+        }
+
+        .open-button:hover, .close-button:hover {
+            background-color: #d3548e;
+        }
+
+        .alert {
+            background-color: black;
+            color: #fff;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 20px;
+        }
+
+        .cat-gif {
+            width: 100px;
+            height: 100px;
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes moveButton {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(10px);
+            }
+            100% {
+                transform: translateX(-10px);
+            }
+        }
+
+        @keyframes flowMessages {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;"> For Surprise, Click on open!<h>
+    <div class="container">
+        <div class="box" id="surprise-box">
+            <img src="C:\Users\Pranavi\Downloads\wiggling-box-with-pink-ribbon-cd372u0a14n8baap.gif" alt="Surprise GIF" style="display: block;">
+        </div>
+        <button class="open-button" onclick="moveButton()">Open</button>
+        <button class="close-button" onclick="showSurpriseBox()">Close</button>
+        <img src="C:\Users\Pranavi\Downloads\ede.gif" class="cat-gif" id="cat-gif" alt="Cat GIF" style="display: none;">
+        <div class="alert" id="alert" onclick="showBirthdayMessages()">Alert! Click here for surprise!</div>
+    </div>
+    <script>
+        function moveButton() {
+            var button = document.querySelector('.open-button');
+            button.style.animation = 'moveButton 1s ease infinite';
+        }
+
+        function showSurpriseBox() {
+            var catGif = document.getElementById('cat-gif');
+            catGif.style.display = 'block';
+            setTimeout(function() {
+                catGif.style.display = 'none';
+            }, 2000); // Hide the cat GIF after 2 seconds
+        }
+
+        setTimeout(function() {
+            var alertBox = document.getElementById('alert');
+            alertBox.style.display = 'block';
+            alertBox.style.animation = 'flowMessages 10s linear infinite';
+        }, 30000); // Show alert after 30 seconds
+
+        function showBirthdayMessages() {
+            for (var i = 0; i < 10; i++) {
+                alert('Happy Birthday Nithya!');
+            }
+            window.location.href = 'final_page.html'; // Redirect to final page after showing messages
+        }
+    </script>
+</body>
+</html>
